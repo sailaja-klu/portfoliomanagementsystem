@@ -1,45 +1,46 @@
 package com.portfolioproject.model;
 
-public class Stock 
+public class Stock extends Asset
 {
-	private String stockid;
-	private String stockname;
-	private double Price;
-	
-	public Stock(String stockid,String stockname,double Price)
-	{ 
-		this.stockid=stockid;
-		this.stockname=stockname;
-		this.Price=Price;
-	}
-	
-	public String getStockid()
-	{
-		return stockid=stockid;
-	}
-	
-	public void setstockid(String stockid)
-	{
-		this.stockid=stockid;
-	}
-	
-	public String getStockname()
-	{
-		return stockname;
-	}
-	
-	public void setStockname(String stockname)
-	{
-		this.stockname=stockname;
-	}
-	
-	public double getPrice()
-	{
-		return Price;
-	}
-	
-	public void setPrice(double price)
-	{
-		Price = price;
-	}
+	private double currentPrice;
+
+    // Constructor
+    public Stock(String assetId,
+                 String assetName,
+                 double purchasePrice,
+                 double currentPrice) {
+
+        super(assetId, assetName, purchasePrice);
+
+        this.currentPrice = currentPrice;
+    }
+
+    // Method overriding
+    @Override
+    public double calculateCurrentValue() {
+
+        return currentPrice;
+    }
+
+    // Getter
+    public double getCurrentPrice() {
+        return currentPrice;
+    }
+
+    // Setter
+    public void setCurrentPrice(double currentPrice) {
+
+        this.currentPrice = currentPrice;
+    }
+
+    @Override
+    public String toString() {
+
+        return "Stock{" +
+                "Asset ID='" + getAssetId() + '\'' +
+                ", Asset Name='" + getAssetName() + '\'' +
+                ", Purchase Price=" + getPurchasePrice() +
+                ", Current Price=" + currentPrice +
+                '}';
+    }
 }

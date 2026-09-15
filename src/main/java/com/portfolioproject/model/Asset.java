@@ -1,40 +1,34 @@
 package com.portfolioproject.model;
 
-public class Asset 
+public abstract class Asset 
 {
-	private String AssetID;
-	private String Assetname;
-	private String Assetprice;
 
-		public Asset(String AssetID,String name,String price)
-		{
-			this.AssetID=AssetID;
-			this.Assetname=Assetname;
-			this.Assetprice=Assetprice;
-		}
+	private String assetId;
+    private String assetName;
+    private double purchasePrice;
 
-		public String getAssetID() {
-			return AssetID;
-		}
+    // Constructor
+    public Asset(String assetId, String assetName, double purchasePrice) {
 
-		public void setAssetID(String assetID) {
-			AssetID = assetID;
-		}
+        this.assetId = assetId;
+        this.assetName = assetName;
+        this.purchasePrice = purchasePrice;
+    }
 
-		public String getAssetname() {
-			return Assetname;
-		}
+    // Getters
 
-		public void setAssetname(String assetname) {
-			Assetname = assetname;
-		}
+    public String getAssetId() {
+        return assetId;
+    }
 
-		public String getAssetprice() {
-			return Assetprice;
-		}
+    public String getAssetName() {
+        return assetName;
+    }
 
-		public void setAssetprice(String assetprice) {
-			Assetprice = assetprice;
-		}
-		
+    public double getPurchasePrice() {
+        return purchasePrice;
+    }
+
+    // Abstract method
+    public abstract double calculateCurrentValue();
 }
